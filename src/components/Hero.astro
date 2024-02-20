@@ -2,7 +2,7 @@
 import Logo from "./Logo.astro";
 ---
 
-<div class="heroContainer md:flex py-20 px-0 flex-col justify-center items-center gap-3 self-stretch">
+<div class="heroContainer md:flex pt-16 pb-20 px-0 flex-col justify-center items-center gap-3 self-stretch">
   <div class="hero flex flex-col lg:flex-row items-end gap-14 mx-[350px]">
     <div class="logoAndText flex flex-col items-start gap-12 flex-1">
       <div class="logo flex w-96 justify-center items-center">
@@ -10,8 +10,8 @@ import Logo from "./Logo.astro";
       </div>
       <div class="textAndButton">
         <div class="presentation">
-          <h2>Olá! Bem vindo(a)! Que bom que você chegou até aqui!</h2>
-          <section>
+          <h2 class="pb-4">Olá! Bem vindo(a)! Que bom que você chegou até aqui!</h2>
+          <section class="pb-8">
             Sou Mariana Castro, psicóloga clínica e psicanalista de orientação
             Lacaniana, com graduação em Psicologia pela Pontifícia Universidade
             Católica de Minas Gerais (PUC-MG). Pós-graduada em Saúde Mental e
@@ -91,17 +91,7 @@ import Logo from "./Logo.astro";
     flex-direction: column;
     align-items: flex-start;
   }
-  .presentation h2 {
-    /* width: 491px;
-    height: 56px; */
-    color: var(--Marrom-Titulo, #595452);
-    font-family: Jost;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.57px;
-  }
+
   .presentation section {
     /* width: 479px;
     height: 235px; */
