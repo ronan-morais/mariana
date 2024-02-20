@@ -1,0 +1,58 @@
+---
+import Acordeon from "../components/Acordeon.astro";
+import ServicesList from "../components/ServicesList.astro";
+---
+
+<div class="bg-white flex w-full justify-center">
+  <div
+    class="servicesContainer justify-between w-2/3 flex py-20 flex-row gap-5 self-stretch"
+  >
+    <div class="servicesTitle w-full flex flex-col align-middle">
+      <h2 class="pb-3">Como Funciona?</h2>
+      <Acordeon title="E se eu não souber o que falar?">
+        <div class="text-marromTitulo">
+          <p class="pb-5">
+            A primeira sessão é uma oportunidade para nos conhecermos e me
+            contar um pouco sobre o motivo da busca por análise neste momento.
+            Na sequência, se você se sentir à vontade comigo e eu entender que
+            posso te auxiliar no seu processo, daremos início ao acompanhamento.
+          </p>
+          <p class="pb-5">
+            Durante as sessões subsequentes, buscarei oferecer um ambiente
+            acolhedor e de confiança para que você possa falar livremente sobre
+            seus pensamentos, sentimentos e experiências. Isso ajudará a acessar
+            conteúdos inconscientes e a promover uma compreensão mais profunda
+            dos padrões, significados ocultos e conflitos inconscientes que
+            aparecem nas palavras, ações e sonhos.
+          </p>
+          <p class="pb-5">
+            À medida em que se expressar e refletir sobre a sua história, poderá
+            observar insights e mudanças pessoais significativas.
+          </p>
+        </div>
+      </Acordeon>
+    </div>
+
+    <style>
+      /* .container {
+    background-color: rgba(255, 255, 255, 0.37);
+    width: 100%;
+    border: 1px solid red;
+  } 
+  .servicesContainer {
+    display: flex;
+    padding: 80px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+  }*/
+      .services {
+        display: flex;
+        align-items: flex-end;
+        gap: 60px;
+      }
+    </style>
+  </div>
+</div>
