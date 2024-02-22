@@ -3,13 +3,13 @@ import Acordeon from "../components/Acordeon.astro";
 import ServicesList from "../components/ServicesList.astro";
 ---
 
-<div class="bg-white flex w-full justify-center">
+<div class="flex w-full justify-center">
   <div
     class="servicesContainer justify-between w-2/3 flex py-20 flex-row gap-5 self-stretch"
   >
     <div class="servicesTitle w-full flex flex-col align-middle">
-      <h2 class="pb-3">Como Funciona</h2>
-      <Acordeon title="E se eu não souber o que falar?">
+      <h2 class="pb-10">Como Funciona</h2>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="E se eu não souber o que falar?">
         <div class="text-marromTitulo">
           <p class="pb-5">
             A primeira sessão é uma oportunidade para nos conhecermos e me
@@ -31,6 +31,13 @@ import ServicesList from "../components/ServicesList.astro";
           </p>
         </div>
       </Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Como é garantida a confidencialidade das sessões de análise?"></Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual é a duração das sessões de análise?"></Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual é a frequência das sessões de análise?"></Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Quais as modalidades de atendimento?"></Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual o valor das sessões de análise?"></Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual é a política de cancelamento de sessões?"></Acordeon>
+      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Ficou alguma dúvida?"></Acordeon>
     </div>
 
     <style>
