@@ -17,7 +17,6 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="../styles.css" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700&display=swap"
       rel="stylesheet"
@@ -61,8 +60,12 @@ const { title } = Astro.props;
     align-items: center;
     gap: 50px;
   }*/
-  body{
-    background: #EEE8E0;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  body {
+    background: #eee8e0;
   }
   h2 {
     /* width: 491px;
