@@ -1,0 +1,86 @@
+---
+import Form from "../components/Form";
+
+---
+
+<div
+  class="heroContainer md:flex pt-16 pb-20 px-0 flex-col justify-center items-center gap-3 self-stretch"
+>
+  <div class="hero flex flex-col items-start lg:mx-[0px] w-full">
+    <div class="flex flex-row gap-14 w-full">
+      <div class="photo2 justify-end">
+        <img src="../photo02.jpg" alt="Mariana Silveira de Castro" />
+      </div>
+      <div class="logoAndText flex flex-col items-start gap-12 flex-1">
+        <div class="textAndButton w-full">
+          <div class="presentation w-[60%]">
+            <h2 class="pb-10">Vamos conversar?</h2>
+            <section class="pb-8">
+              <div>
+                <span class="text-marromTronco font-bold">WhatsApp:</span>
+                <b
+                  ><a href="https://wa.me/5538999372842" target="_blank"
+                    >+55 (38) 99937-2842</a
+                  ></b
+                >
+              </div>
+              <div>
+                <span class="text-marromTronco font-bold">Instagram:</span>
+                <a
+                  href="https://www.instagram.com/marianacastropsicologa"
+                  target="_blank">@marianacastropsicologa</a
+                >
+              </div>
+              <div>
+                <span class="text-marromTronco font-bold">E-mail:</span>
+                <a href="mailto:psi.marianasc@gmail.com" target="_blank"
+                  >psi.marianasc@gmail.com</a
+                >
+              </div>
+            </section>
+            <Form client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .textAndButton {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 19px;
+  }
+  .presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .presentation section {
+    /* width: 479px;
+    height: 235px; */
+    color: #575149;
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .photo2 {
+    display: flex;
+    /* width: 448px;
+    height: 664px; */
+    align-items: center;
+    border-radius: 1000px;
+    mix-blend-mode: multiply;
+    flex: 1 0 0;
+    align-self: stretch;
+    /* background:
+      url(../../public/photo01.jpg),
+      lightgray 50% / cover no-repeat; */
+  }
+</style>
