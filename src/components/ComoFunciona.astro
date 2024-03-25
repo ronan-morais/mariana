@@ -9,8 +9,14 @@ import ServicesList from "../components/ServicesList.astro";
   >
     <div class="servicesTitle w-full flex flex-col align-middle">
       <h2 class="pb-10">Como Funciona</h2>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="E se eu não souber o que falar?">
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="E se eu não souber o que falar?"
+      >
         <div class="text-marromTitulo">
+          <p class="pb-5">
+            Não se preocupe, no processo analítico não há certo ou errado!
+          </p>
           <p class="pb-5">
             A primeira sessão é uma oportunidade para nos conhecermos e me
             contar um pouco sobre o motivo da busca por análise neste momento.
@@ -31,13 +37,116 @@ import ServicesList from "../components/ServicesList.astro";
           </p>
         </div>
       </Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Como é garantida a confidencialidade das sessões de análise?"></Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual é a duração das sessões de análise?"></Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual é a frequência das sessões de análise?"></Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Quais as modalidades de atendimento?"></Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual o valor das sessões de análise?"></Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Qual é a política de cancelamento de sessões?"></Acordeon>
-      <Acordeon class:list={"mb-2 bg-white bg-opacity-60"} title="Ficou alguma dúvida?"></Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Como é garantida a confidencialidade das sessões de análise?"
+      >
+        <div class="text-marromTitulo">
+          <p class="pb-5">
+            A confidencialidade é um aspecto fundamental. Todas as informações
+            compartilhadas durante as sessões são confidenciais e protegidas por
+            lei, exceto em situações específicas em que haja riscos a você ou a
+            outras pessoas.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Qual é a duração das sessões de análise?"
+      >
+        <div class="text-marromTitulo">
+          <p class="pb-5">
+            As sessões de análise seguem o tempo lógico (não cronológico), mas
+            geralmente duram cerca de 50 minutos. Podem vir a ser estendidas ou
+            encerradas antecipadamente, conforme o andamento, a fim de oferecer
+            intervenções pontuais.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Qual é a frequência das sessões de análise?"
+        ><div class="text-marromTitulo">
+          <p class="pb-5">
+            A frequência regular das sessões é importante para permitir a
+            continuidade e aprofundamento do processo analítico. Costumo
+            recomendar encontros semanais, mas havendo necessidade, a frequência
+            poderá ser aumentada ou espaçada, sendo isso previamente combinado.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Por quanto tempo devo fazer análise?"
+        ><div class="text-marromTitulo">
+          <p class="pb-5">
+            O processo de análise é individual e singular, pois varia de acordo
+            com as necessidades/limites do paciente, e com as recomendações do
+            analista.
+          </p>
+          <p class="pb-5">
+            Importante lembrar que a Psicanálise é uma abordagem terapêutica
+            profunda que busca promover transformações duradouras no indivíduo,
+            sendo assim, como todo processo de mudança, requer tempo e
+            constância.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Quais as modalidades de atendimento?"
+        ><div class="text-marromTitulo">
+          <p class="pb-5">
+            As sessões presenciais são realizadas em meu consultório, na cidade
+            de Curvelo/MG. Para aqueles que preferem a conveniência das sessões
+            remotas também ofereço sessões de forma online, por meio de
+            videoconferência, utilizando plataformas confiáveis como Google
+            Meet, Zoom e WhatsApp.
+          </p>
+          <p class="pb-5">
+            A terapia online garante a continuidade do tratamento, mesmo em
+            situações em que a presença física não é possível. Nesse contexto,
+            são seguidas as mesmas diretrizes éticas e de confidencialidade que
+            as sessões presenciais.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Qual o valor das sessões de análise?"
+      >
+        <div class="text-marromTitulo">
+          <p class="pb-5">
+            O Conselho Federal de Psicologia (art. 20, alínea “d” do Código de
+            Ética) proíbe e considera a publicação de valores para atrair
+            clientela como falta ética.
+          </p>
+          <p class="pb-5">
+            <button>Entre em contato comigo</button> para que eu te informe as opções
+            de valor.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Qual é a política de cancelamento de sessões?"
+        ><div class="text-marromTitulo">
+          <p class="pb-5">
+            Quando necessário, as sessões devem ser remarcadas ou desmarcadas
+            com 24 horas de antecedência. Dessa forma, consigo remanejar a
+            agenda e oferecer o horário vago a outra pessoa que possa precisar.
+          </p>
+        </div>
+      </Acordeon>
+      <Acordeon
+        class:list={"mb-2 bg-white bg-opacity-60"}
+        title="Ficou alguma dúvida?"
+        ><div class="text-marromTitulo">
+          <p class="pb-5">
+            Entre em contato comigo para obter mais informações.
+          </p>
+        </div>
+      </Acordeon>
     </div>
 
     <style>
