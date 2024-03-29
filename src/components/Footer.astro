@@ -1,6 +1,8 @@
 ---
 import Form from "../components/Form";
+import { db, Contatos } from "astro:db";
 
+const contatos = await db.select().from(Contatos);
 ---
 
 <div
@@ -38,7 +40,18 @@ import Form from "../components/Form";
                 >
               </div>
             </section>
-            <Form client:load />
+            {
+              contatos.map(({ nome, email, telefone, assunto, mensagem }) => (
+                <article>
+                  <p>Nome: {nome}</p>
+                  <p>Email: {email}</p>
+                  <p>Telefone: {telefone}</p>
+                  <p>Assunto: {assunto}</p>
+                  <p>Mensagem: {mensagem}</p>
+                </article>
+              ))
+            }
+            <!-- <Form client:load /> -->
           </div>
         </div>
       </div>
