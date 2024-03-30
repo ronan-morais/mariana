@@ -3,7 +3,7 @@ import Button from "./Button.astro";
 
 
 async function postFormData(formData: FormData) {
-  const response = await fetch("/api/feedback", {
+  const response = await fetch("/api/submitForm", {
     method: "POST",
     body: formData,
   });
@@ -25,8 +25,8 @@ export default function Form() {
     <form class="w-full" onSubmit={submit}>
       <div>
         <input
-          id="nome"
-          name="nome"
+          id="name"
+          name="name"
           type="text"
           autocomplete="Nome"
           placeholder="Nome:"
@@ -47,8 +47,8 @@ export default function Form() {
       </div>
       <div>
         <input
-          id="telefone"
-          name="telefone"
+          id="phone"
+          name="phone"
           type="tel"
           autocomplete="Telefone"
           placeholder="(DDD) Telefone:"
@@ -58,8 +58,8 @@ export default function Form() {
       </div>
       <div>
         <textarea
-          id="mensagem"
-          name="mensagem"
+          id="message"
+          name="message"
           autocomplete="Mensagem"
           placeholder="Mensagem:"
           /* required */
