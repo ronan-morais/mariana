@@ -1,6 +1,7 @@
 import { XataClient } from "../../xata";
 import type { APIRoute } from "astro";
 
+export const prerender = true;
 
 const xata = new XataClient({
   apiKey: import.meta.env.XATA_API_KEY,
@@ -27,6 +28,7 @@ export const GET: APIRoute = async () => {
     }
   });
 }
+
 
 export const POST: APIRoute = async ({ request }) => {
 
