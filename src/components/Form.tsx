@@ -3,7 +3,7 @@ import Button from "./Button.astro";
 
 
 async function postFormData(formData: FormData) {
-  const response = await fetch("/api/submitForm", {
+  const response = await fetch("/api/xata", {
     method: "POST",
     body: formData,
   });

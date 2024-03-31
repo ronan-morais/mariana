@@ -1,0 +1,17 @@
+{
+  "id": "mig_co4aj4sfiil5rc1uao80",
+  "parentID": "mig_co4aiskfiil5rc1uao70",
+  "checksum": "1:db014e6a8f65450368d8d970d7308e5c54e91184c457c836889591b42c505ce1",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "email",
+          "type": "email",
+          "unique": true
+        },
+        "table": "contacts"
+      }
+    }
+  ]
+}

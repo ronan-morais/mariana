@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Mariana-Silveira-isdnks.us-east-1.xata.sh/db/site",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

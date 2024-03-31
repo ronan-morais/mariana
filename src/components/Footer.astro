@@ -3,7 +3,6 @@ import Form from "../components/Form";
 import { db, Contatos } from "astro:db";
 
 const contatos = await db.select().from(Contatos);
-
 ---
 
 <div
@@ -41,22 +40,7 @@ const contatos = await db.select().from(Contatos);
                 >
               </div>
             </section>
-            <!-- <form method="POST" style="display: grid;">
-              <label>Nome:</label>
-              <input id="nome" name="nome" />
-              <button type="submit">Enviar</button>
-            </form> -->
-            <Form client:load /><br/>
-            {
-              contatos.map(({ name, email, phone, message }) => (
-                <article class="mb-4 bg-white rounded-2xl p-6 text-sm">
-                  <p><b>Nome:</b> {name}</p>
-                  <p><b>Email:</b> {email}</p>
-                  <p><b>Telefone:</b> {phone}</p>
-                  <p><b>Mensagem:</b> {message}</p>
-                </article>
-              ))
-            }
+            <Form client:load />
           </div>
         </div>
       </div>
