@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
     && typeof phone === 'string'
     && typeof message === 'string') {
 
-    const record = await xata.db.contacts.create({
+    await xata.db.contacts.create({
       name: name,
       email: email,
       phone: phone,
@@ -59,12 +59,8 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     return new Response(
-      JSON.stringify(record), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }
+      JSON.stringify("Enviado com sucesso! Por gentileza aguarde nosso contato."),
+      { status: 200 }
     );
   }
 }
