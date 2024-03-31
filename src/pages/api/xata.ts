@@ -10,9 +10,9 @@ const xata = new XataClient({
 
 export const GET: APIRoute = async () => {
 
-  let posts = await xata.db.contacts.getAll();
+  let contacts = await xata.db.contacts.getAll();
 
-  if (!posts) {
+  if (!contacts) {
     return new Response(null, {
       status: 404,
       statusText: 'Not found'
@@ -20,13 +20,12 @@ export const GET: APIRoute = async () => {
   }
 
   return new Response(
-    JSON.stringify(posts), {
+    JSON.stringify(contacts), {
     status: 200,
     headers: {
       "Content-Type": "application/json"
     }
-  }
-  );
+  });
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -39,11 +38,12 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (!name || !email || !phone || !message) {
     return new Response(
-      JSON.stringify({
-        message: "Campo obrigatório",
-      }),
-      { status: 400 }
-    )
+      JSON.stringify({ message: "Campos obrigatórios não preenchidos" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
   }
 
   if (typeof name === 'string'
@@ -51,16 +51,28 @@ export const POST: APIRoute = async ({ request }) => {
     && typeof phone === 'string'
     && typeof message === 'string') {
 
-    await xata.db.contacts.create({
-      name: name,
-      email: email,
-      phone: phone,
-      message: message,
-    });
+    try {
+      await xata.db.contacts.create({
+        name: name,
+        email: email,
+        phone: phone,
+        message: message,
+      });
+    } catch (error) {
+      return new Response(error.message, {
+        status: 400,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    }
 
     return new Response(
-      JSON.stringify("Enviado com sucesso! Por gentileza aguarde nosso contato."),
-      { status: 200 }
-    );
+      JSON.stringify({ message: "Mensagem enviada com sucesso. Em breve entraremos em contato." }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
   }
 }
