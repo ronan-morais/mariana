@@ -5,12 +5,13 @@ import vercel from "@astrojs/vercel/serverless";
 import db from "@astrojs/db";
 //import tailwind from "@astrojs/tailwind";
 
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://marianasilveira.vercel.app/",
   integrations: [tailwind(), solidJs(), db()],
   output: "hybrid",
-  adapter: vercel()
+  adapter: netlify()
 } //integrations: [tailwind()]
 );
