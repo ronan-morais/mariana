@@ -11,13 +11,13 @@ async function postFormData(formData: FormData) {
 }
 
 export default function Form() {
-
   const [formData, setFormData] = createSignal<FormData>();
   const [response] = createResource(formData, postFormData);
 
   function submit(e: SubmitEvent) {
     e.preventDefault();
     setFormData(new FormData(e.target as HTMLFormElement));
+    console.log("Form", formData());
   }
 
   return (
