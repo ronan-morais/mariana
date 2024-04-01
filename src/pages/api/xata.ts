@@ -27,8 +27,6 @@ export const GET: APIRoute = async () => {
       "Content-Type": "application/json"
     }
   });
-
-  delete response.headers['Content-Disposition'];
   return response
 }
 

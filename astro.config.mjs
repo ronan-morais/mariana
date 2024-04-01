@@ -2,16 +2,13 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel/serverless";
-import db from "@astrojs/db";
-//import tailwind from "@astrojs/tailwind";
-
-import netlify from "@astrojs/netlify";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://marianasilveira.vercel.app/",
-  integrations: [tailwind(), solidJs(), db()],
+  integrations: [tailwind(), solidJs()],
   output: "server",
-  adapter: netlify()
+  adapter: vercel()
 } //integrations: [tailwind()]
 );
