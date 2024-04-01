@@ -12,6 +12,6 @@ export default defineConfig({
   site: "https://marianasilveira.vercel.app/",
   integrations: [tailwind(), solidJs(), db()],
   output: "server",
-  adapter: vercel()
+  adapter: netlify()
 } //integrations: [tailwind()]
 );
