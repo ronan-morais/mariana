@@ -40,7 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (!name || !email || !phone || !message) {
     return new Response(
       JSON.stringify({ message: "Campos obrigatórios não preenchidos" }), {
-      status: 401,
+      status: 400,
       headers: {
         "Content-Type": "application/json"
       }
@@ -60,7 +60,8 @@ export const POST: APIRoute = async ({ request }) => {
         message: message,
       });
     } catch (error) {
-      return new Response(error.message, {
+      return new Response(
+        JSON.stringify({ message: "Ocorreu um erro. Tente novamente." }), {
         status: 400,
         headers: {
           "Content-Type": "application/json"
