@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro";
-import { db, Contatos } from 'astro:db';
 
 export const POST: APIRoute = async ({ request }) => {
 
@@ -24,7 +23,6 @@ export const POST: APIRoute = async ({ request }) => {
       && typeof phone === 'string'
       && typeof message === 'string') {
       // insert form data into the Comment table
-      await db.insert(Contatos).values({ name, email, phone, message });
     }
   };
 
