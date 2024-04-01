@@ -1,8 +1,6 @@
 import { XataClient } from "../../xata";
 import type { APIRoute } from "astro";
 
-export const prerender = true;
-
 const xata = new XataClient({
   apiKey: import.meta.env.XATA_API_KEY,
   branch: import.meta.env.XATA_BRANCH

@@ -8,7 +8,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://marianasilveira.vercel.app/",
   integrations: [tailwind(), solidJs()],
-  output: "hybrid",
+  output: "server",
   adapter: vercelServerless({
     edgeMiddleware: true
   })

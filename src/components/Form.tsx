@@ -22,7 +22,7 @@ export default function Form() {
   }
 
   return (
-    <form class="w-full" onSubmit={submit}>
+    <form class="w-full" onSubmit={submit} method="post">
       <div>
         <input
           id="name"
