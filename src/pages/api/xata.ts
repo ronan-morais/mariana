@@ -20,13 +20,16 @@ export const GET: APIRoute = async () => {
     });
   }
 
-  return new Response(
+  const response = new Response(
     JSON.stringify(contacts), {
     status: 200,
     headers: {
       "Content-Type": "application/json"
     }
   });
+
+  delete response.headers['Content-Disposition'];
+  return response
 }
 
 
