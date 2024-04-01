@@ -9,7 +9,5 @@ export default defineConfig({
   site: "https://marianasilveira.vercel.app/",
   integrations: [tailwind(), solidJs()],
   output: "server",
-  adapter: vercel(/* {
-    edgeMiddleware: true
-  } */)
+  adapter: vercel()
 });
