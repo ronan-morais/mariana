@@ -11,7 +11,7 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   site: "https://marianasilveira.vercel.app/",
   integrations: [tailwind(), solidJs(), db()],
-  output: "serverless",
+  output: "server",
   adapter: vercel()
 } //integrations: [tailwind()]
 );
