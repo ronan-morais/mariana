@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Form from "../components/Form";
+import photoFooter from "/public/photo02.jpg";
 ---
 
 <div
@@ -8,7 +10,8 @@ import Form from "../components/Form";
   <div class="hero flex flex-col items-start lg:mx-[0px] w-full">
     <div class="flex flex-row gap-14 w-full items-center">
       <div class="photo2 justify-end">
-        <img src="../photo02.jpg" alt="Mariana Silveira de Castro" />
+        <!-- <img src="../photo02.jpg" alt="Mariana Silveira de Castro" /> -->
+        <Image src={photoFooter} alt="Mariana Silveira de Castro" />
       </div>
       <div class="logoAndText flex flex-col items-start gap-12 flex-1">
         <div class="textAndButton w-full">
