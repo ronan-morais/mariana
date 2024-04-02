@@ -1,9 +1,9 @@
-import type { APIRoute } from "astro";
+import type { APIContext, APIRoute } from "astro";
 import { db, Contacts } from 'astro:db';
 
 export const GET: APIRoute = async () => {
 
-  const contacts = await await db.select().from(Contacts);
+  const contacts = await db.select().from(Contacts);
 
   if (!contacts) {
     return new Response(null, {
@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
 }
 
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST = async ({ request }: APIContext) => {
 
   const data = await request.formData();
   const name = data.get("name");
