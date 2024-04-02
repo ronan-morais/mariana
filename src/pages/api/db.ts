@@ -1,15 +1,9 @@
-import { XataClient } from "../../xata";
-import type { APIRoute } from "astro";
-
-const xata = new XataClient({
-  apiKey: import.meta.env.XATA_API_KEY,
-  branch: import.meta.env.XATA_BRANCH
-});
-
+import type { APIContext, APIRoute } from "astro";
+import { db, Contacts } from 'astro:db';
 
 export const GET: APIRoute = async () => {
 
-  let contacts = await xata.db.contacts.getAll();
+  const contacts = await db.select().from(Contacts);
 
   if (!contacts) {
     return new Response(null, {
@@ -29,7 +23,7 @@ export const GET: APIRoute = async () => {
 }
 
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST = async ({ request }: APIContext) => {
 
   const data = await request.formData();
   const name = data.get("name");
@@ -53,12 +47,7 @@ export const POST: APIRoute = async ({ request }) => {
     && typeof message === 'string') {
 
     try {
-      await xata.db.contacts.create({
-        name: name,
-        email: email,
-        phone: phone,
-        message: message,
-      });
+      await db.insert(Contacts).values({ name, email, phone, message });
     } catch (error) {
       return new Response(
         JSON.stringify({ message: "Ocorreu um erro. Tente novamente." }), {

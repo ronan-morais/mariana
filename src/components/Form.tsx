@@ -2,7 +2,7 @@ import { createSignal, createResource, Suspense } from "solid-js";
 import Button from "./Button.astro";
 
 async function postFormData(formData: FormData) {
-  const response = await fetch("/api/xata", {
+  const response = await fetch("/api/db", {
     method: "POST",
     body: formData,
   });

@@ -1,6 +1,8 @@
 ---
 import Logo from "./Logo.astro";
 import Button from "./Button.astro"
+import { Image } from "astro:assets";
+import photoHero from "@assets/photo01.jpg"
 ---
 
 <div
@@ -30,7 +32,7 @@ import Button from "./Button.astro"
         </div>
       </div>
       <div class="photo">
-        <img src="../photo01.jpg" alt="Mariana Silveira de Castro" />
+        <Image src={photoHero} alt="Mariana Silveira de Castro" />
       </div>
     </div>
     <Button title="Clique aqui para saber mais sobre mim" />
