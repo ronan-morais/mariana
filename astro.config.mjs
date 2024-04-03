@@ -8,7 +8,7 @@ import auth from "auth-astro";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://marianasilveira.vercel.app/",
+  /* site: "https://marianasilveira.vercel.app/", */
   integrations: [tailwind(), solidJs(), db(), auth()],
   output: "server",
   adapter: vercel({
