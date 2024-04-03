@@ -4,8 +4,10 @@ import ServicesList from "../components/ServicesList.astro";
 import ComoFunciona from "../components/ComoFunciona.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+import { SignIn, SignOut } from "auth-astro/components";
 
-//export const prerender = true;
+const session = await getSession(Astro.request);
 ---
 
 <Layout title="Mariana Silveira de Castro - Psicologia / Psicanálise">
@@ -13,7 +15,12 @@ import Layout from "../layouts/Layout.astro";
     <Hero />
     <ServicesList />
     <ComoFunciona />
-    <Footer/>
+    <Footer />
+    <div>
+      login <SignIn provider={"github"} class="bg-red-500 p-4" />
+      <SignOut />
+    </div>
+    {session ? <b>Logado {session.user?.name}</b> : <b>not logged</b>}
   </main>
 </Layout>
 
