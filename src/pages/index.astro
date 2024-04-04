@@ -17,8 +17,8 @@ const session = await getSession(Astro.request);
     <ComoFunciona />
     <Footer />
     <div>
-      login <SignIn provider={"github"} class="bg-red-500 p-4" />
-      <SignOut />
+      login <SignIn provider={"github"} class="bg-green-500 p-4 rounded-md" />
+      <SignOut class="bg-red-500 p-4 rounded-md" />
     </div>
     {session ? <b>Logado {session.user?.name}</b> : <b>not logged</b>}
   </main>
