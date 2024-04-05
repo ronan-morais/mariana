@@ -16,16 +16,10 @@ const session = await getSession(Astro.request);
     <ServicesList />
     <ComoFunciona />
     <Footer />
-    <div>
+    <!-- <div>
       login <SignIn provider={"github"} class="bg-green-500 p-4 rounded-md" />
       <SignOut class="bg-red-500 p-4 rounded-md" />
-    </div>
-    {session ? <b>Logado {session.user?.name}</b> : <b>not logged</b>}
+    </div> -->
+    {//session ? <b>Logado {session.user?.name}</b> : <b>not logged</b>}
   </main>
 </Layout>
-
-<style>
-  /* main{
-    width: 100%;
-  } */
-</style>

@@ -1,25 +1,32 @@
 ---
 import Logo from "./Logo.astro";
-import Button from "./Button.astro"
+import Button from "./Button.astro";
 import { Image } from "astro:assets";
-import photoHero from "@assets/photo01.jpg"
+import photoHero from "@assets/photo01.jpg";
 ---
 
 <div
   class="heroContainer md:flex pt-16 pb-20 px-0 flex-col justify-center items-center gap-3 self-stretch"
 >
-  <div class="hero flex flex-col items-start lg:mx-[200px]">
-    <div class="flex flex-row gap-14">
-      <div class="logoAndText flex flex-col items-start gap-12 flex-1">
-        <div class="logo flex w-96 justify-center items-center">
+  <div class="hero flex flex-col items-start md:mx-[150px] xl:mx-[300px]">
+    <div class="flex flex-col md:flex-row gap-0 md:gap-14">
+      <div class="logoAndText flex flex-col items-start gap-12 w-full">
+        <div
+          class="logo flex justify-center items-center w-full px-16 md:w-60 lg:w-80 xl:w-[450px]"
+        >
           <Logo />
         </div>
-        <div class="textAndButton">
-          <div class="presentation">
-            <h2 class="pb-4">
-              Olá! Bem vindo(a)! Que bom que você chegou até aqui!
+        <div
+          class="photo md:hidden flex justify-center items-center rounded-full mix-blend-multiply self-stretch px-14 md:w-[350px]"
+        >
+          <Image src={photoHero} alt="Mariana Silveira de Castro" />
+        </div>
+        <div class="textAndButton flex px-14 flex-col items-start gap-5">
+          <div class="presentation flex flex-col items-start md:pl-16">
+            <h2 class="pb-4 text-base lg:text-lg">
+              Olá! Bem vindo(a)!<br /> Que bom que você chegou até aqui!
             </h2>
-            <section class="pb-8">
+            <article class="pb-8 text-sm md:text-base">
               Sou Mariana Castro, psicóloga clínica e psicanalista de orientação
               Lacaniana, com graduação em Psicologia pela Pontifícia
               Universidade Católica de Minas Gerais (PUC-MG). Pós-graduada em
@@ -27,15 +34,22 @@ import photoHero from "@assets/photo01.jpg"
               processo de formação continuada em Psicanálise, atualmente,
               vinculado ao Instituto de ESPE. Realizo atendimentos individuais
               (online e presenciais) para adolescentes, adultos e idosos.
-            </section>
+            </article>
+            <div class="justify-start md:flex hidden">
+              <Button class="text-sm md:text-base" title="Clique aqui para saber mais sobre mim" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="photo">
+      <div class="justify-center flex md:hidden">
+        <Button class="text-sm" title="Clique aqui para saber mais sobre mim" />
+      </div>
+      <div
+        class="photo hidden md:flex justify-center items-center rounded-full mix-blend-multiply self-stretch md:w-full"
+      >
         <Image src={photoHero} alt="Mariana Silveira de Castro" />
       </div>
     </div>
-    <Button title="Clique aqui para saber mais sobre mim" />
   </div>
 </div>
 
@@ -44,43 +58,5 @@ import photoHero from "@assets/photo01.jpg"
     width: 385px;
     height: 255px;
     flex-shrink: 0;
-  }
-  .textAndButton {
-    display: flex;
-    padding-left: 80px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 19px;
-  }
-  .presentation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .presentation section {
-    /* width: 479px;
-    height: 235px; */
-    color: #575149;
-    font-family: Jost;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .photo {
-    display: flex;
-    /* width: 448px;
-    height: 664px; */
-    justify-content: center;
-    align-items: center;
-    border-radius: 1000px;
-    mix-blend-mode: multiply;
-    flex: 1 0 0;
-    align-self: stretch;
-    /* background:
-      url(../../public/photo01.jpg),
-      lightgray 50% / cover no-repeat; */
   }
 </style>
