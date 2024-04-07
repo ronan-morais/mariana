@@ -8,6 +8,7 @@ import { getSession } from "auth-astro/server";
 import { SignIn, SignOut } from "auth-astro/components";
 
 const session = await getSession(Astro.request);
+console.log("Rendering the index page");
 ---
 
 <Layout title="Mariana Silveira de Castro - Psicologia / Psicanálise">
