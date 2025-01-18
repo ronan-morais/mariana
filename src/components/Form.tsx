@@ -1,36 +1,43 @@
-import { createSignal, createResource, Suspense } from "solid-js";
+import { useState } from "react";
+import type { FormEvent } from "react";
 import Button from "./Button.astro";
 
-async function postFormData(formData: FormData) {
+/* async function postFormData(formData: FormData) {
   const response = await fetch("/api/db", {
     method: "POST",
     body: formData,
   });
   const data = await response.json();
   return data;
-}
+} */
 
 export default function Form() {
-  const [formData, setFormData] = createSignal<FormData>();
-  const [response] = createResource(formData, postFormData);
+  const [responseMessage, setResponseMessage] = useState("")
 
-  function submit(e: SubmitEvent) {
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setFormData(new FormData(e.target as HTMLFormElement));
-    console.log("Form", formData());
+    const formData = new FormData(e.target as HTMLFormElement)
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await response.json();
+    if (data.message) {
+      setResponseMessage(data.message)
+    }
   }
 
   return (
-    <form class="w-full" onSubmit={submit} method="post">
+    <form className="w-full" onSubmit={submit} method="POST">
       <div>
         <input
           id="name"
           name="name"
           type="text"
-          autocomplete="Nome"
+          autoComplete="Nome"
           placeholder="Nome:"
           /* required */
-          class="block my-4 w-full px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
+          className="block my-4 w-full px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
         />
       </div>
       <div>
@@ -38,10 +45,10 @@ export default function Form() {
           id="email"
           name="email"
           type="email"
-          autocomplete="E-mail"
+          autoComplete="E-mail"
           placeholder="E-mail:"
           /* required */
-          class="block my-4 w-full px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
+          className="block my-4 w-full px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
         />
       </div>
       <div>
@@ -49,33 +56,33 @@ export default function Form() {
           id="phone"
           name="phone"
           type="tel"
-          autocomplete="Telefone"
+          autoComplete="Telefone"
           placeholder="(DDD) Telefone:"
           /* required */
-          class="block my-4 w-full px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
+          className="block my-4 w-full px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
         />
       </div>
       <div>
         <textarea
           id="message"
           name="message"
-          autocomplete="Mensagem"
+          autoComplete="Mensagem"
           placeholder="Mensagem:"
           /* required */
           rows="5"
-          class="block w-full my-4 px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
+          className="block w-full my-4 px-5 py-4 font-normal rounded-md border-0 text-marromTitulo placeholder:text-marromTronco sm:text-lg sm:leading-6"
         ></textarea>
       </div>
 
       <div>
         <button
           type="submit"
-          class="flex w-full justify-center rounded-md bg-marromTronco px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-marromTitulo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="flex w-full justify-center rounded-md bg-marromTronco px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-marromTitulo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Enviar mensagem
         </button>
       </div>
-      <Suspense>{response() && <p>{response().message}</p>}</Suspense>
+      {responseMessage && <p>{responseMessage}</p>}
     </form>
   );
 }

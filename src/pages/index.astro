@@ -1,4 +1,5 @@
 ---
+import "animate.css";
 import Hero from "../components/Hero.astro";
 import ServicesList from "../components/ServicesList.astro";
 import ComoFunciona from "../components/ComoFunciona.astro";
@@ -10,15 +11,36 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Mariana Silveira de Castro - Psicologia / Psicanálise">
   <main>
-    <Hero />
-    <ServicesList />
-    <ComoFunciona />
-    <Footer/>
+    <div class="hide animate__animated"><Hero /></div>
+    <div class="hide animate__animated"><ServicesList /></div>
+    <div class="hide animate__animated"><ComoFunciona /></div>
+    <div class="hide animate__animated"><Footer /></div>
   </main>
 </Layout>
 
 <style>
-  /* main{
-    width: 100%;
-  } */
+  .hide {
+    opacity: 0;
+  }
 </style>
+
+<script>
+  const elements = document.querySelectorAll(".hide");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate__fadeInUp");
+          entry.target.classList.remove("hide");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  elements.forEach(el => observer.observe(el));
+</script>

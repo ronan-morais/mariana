@@ -2,6 +2,20 @@
 import { Image } from "astro:assets";
 import Form from "../components/Form";
 import photoFooter from "@assets/photo02.jpg";
+
+if (Astro.request.method === "post") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
+    console.log(name, ` <${email}>:`, message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
 <div
@@ -11,7 +25,11 @@ import photoFooter from "@assets/photo02.jpg";
     <div class="flex flex-row gap-14 w-full items-center">
       <div class="photo2 justify-end">
         <!-- <img src="../photo02.jpg" alt="Mariana Silveira de Castro" /> -->
-        <Image src={photoFooter} alt="Mariana Silveira de Castro" />
+        <Image
+          src={photoFooter}
+          class="overflow-clip rounded-full"
+          alt="Mariana Silveira de Castro"
+        />
       </div>
       <div class="logoAndText flex flex-col items-start gap-12 flex-1">
         <div class="textAndButton w-full">
