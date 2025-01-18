@@ -32,7 +32,7 @@ export const POST: APIRoute = async ({ request }) => {
         <p>${message}</p>
       `,
     });
-f
+
     console.log("req", req)
     return new Response(JSON.stringify({ message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.' }), { status: 200 });
 
