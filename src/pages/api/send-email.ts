@@ -11,11 +11,11 @@ export const POST: APIRoute = async ({ request }) => {
   const message = data.get("message")
 
   if (request.method !== 'POST') {
-    return new Response(JSON.stringify({ message: 'Method not allowed' }), { status: 403 });
+    return new Response(JSON.stringify({ message: 'Metodo não permitido' }), { status: 403 });
   }
 
   if (!name || !email || !message) {
-    return new Response(JSON.stringify({ message: 'Fill all required fields' }), { status: 400 });
+    return new Response(JSON.stringify({ message: 'Por favor preencha todos os campos obrigatorios.' }), { status: 400 });
   }
 
   try {
@@ -32,12 +32,12 @@ export const POST: APIRoute = async ({ request }) => {
         <p>${message}</p>
       `,
     });
-
+f
     console.log("req", req)
-    return new Response(JSON.stringify({ message: 'Message sent successfully! We will contact you as soon as possible.' }), { status: 200 });
+    return new Response(JSON.stringify({ message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.' }), { status: 200 });
 
   } catch (error) {
     console.error('Erro ao enviar email:', error);
-    return new Response(JSON.stringify({ message: 'There was an error sending your message. Please try again later.' }), { status: 500 });
+    return new Response(JSON.stringify({ message: 'Ocorreu um erro ao enviar a sua mensagem. Por favor tente novamente mais tarde.' }), { status: 500 });
   }
 }
