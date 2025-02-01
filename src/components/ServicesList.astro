@@ -1,20 +1,23 @@
+---
+const { data } = Astro.props;
+---
+
 <div class="bg-begeCopa flex flex-col lg:flex-row w-full px-20 justify-center">
   <div
     class="servicesContainer justify-between w-full lg:mx-[300px] flex py-20 flex-col lg:flex-row gap-5 self-stretch"
   >
     <div class="servicesTitle min-w-32 flex flex-col align-middle">
-      <h2 class="pb-10">Serviços oferecidos</h2>
+      <h2 class="pb-10">
+        {data && data[0].servicos_titulo}
+      </h2>
       <div>
-        Realizo atendimentos individuais (online e presenciais) para
-        adolescentes, adultos e idosos.
+        {data && data[0].servicos_conteudo}
       </div>
     </div>
     <div
-      class="servicesList text-marromTronco flex min-w-96 w-full font-light text-3xl lg:text-5xl text-end font-jost "
+      class="servicesList text-marromTronco flex min-w-96 w-full font-light text-3xl lg:text-5xl text-end font-jost"
     >
-      ...&nbsp;ansiedade, depressão, tristeza, angústia, medos, traumas,
-      autoconhecimento, relacionamentos interpessoais, saúde mental no
-      trabalho&nbsp;...
+    {data && data[0].servicos_lista}
     </div>
   </div>
 </div>

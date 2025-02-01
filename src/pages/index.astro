@@ -1,4 +1,5 @@
 ---
+import { supabase } from "../lib/supabase";
 import "animate.css";
 import Hero from "../components/Hero.astro";
 import ServicesList from "../components/ServicesList.astro";
@@ -6,15 +7,25 @@ import ComoFunciona from "../components/ComoFunciona.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
+const { data: cms, error: error_cms } = await supabase.from("cms").select("*");
+const { data: faq, error: error_faq } = await supabase.from("faq").select("*");
 //export const prerender = true;
 ---
 
 <Layout title="Mariana Silveira de Castro - Psicologia / Psicanálise">
   <main>
-    <div class="hide animate__animated"><Hero /></div>
-    <div class="hide animate__animated"><ServicesList /></div>
-    <div class="hide animate__animated"><ComoFunciona /></div>
-    <div class="hide animate__animated"><Footer /></div>
+    <div class="hide animate__animated">
+      <Hero data={cms && cms} error={error_cms} />
+    </div>
+    <div class="hide animate__animated">
+      <ServicesList data={cms && cms} error={error_cms} />
+    </div>
+    <div class="hide animate__animated">
+      <ComoFunciona data={faq && faq} error={error_faq} />
+    </div>
+    <div class="hide animate__animated">
+      <Footer data={cms && cms} error={error_cms} />
+    </div>
   </main>
 </Layout>
 

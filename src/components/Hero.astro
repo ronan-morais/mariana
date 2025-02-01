@@ -3,6 +3,8 @@ import Logo from "./Logo.astro";
 import Button from "./Button.astro"
 import { Image } from "astro:assets";
 import photoHero from "@assets/photo01.jpg"
+
+const { data } = Astro.props;
 ---
 
 <div
@@ -17,16 +19,10 @@ import photoHero from "@assets/photo01.jpg"
         <div class="textAndButton">
           <div class="presentation">
             <h2 class="pb-4">
-              Olá! Bem vindo(a)! Que bom que você chegou até aqui!
+              {data && data[0].sobre_titulo}
             </h2>
             <section class="pb-8">
-              Sou Mariana Castro, psicóloga clínica e psicanalista de orientação
-              Lacaniana, com graduação em Psicologia pela Pontifícia
-              Universidade Católica de Minas Gerais (PUC-MG). Pós-graduada em
-              Saúde Mental e Clínica e em Psicologia Forense e Jurídica. E, em
-              processo de formação continuada em Psicanálise, atualmente,
-              vinculado ao Instituto de ESPE. Realizo atendimentos individuais
-              (online e presenciais) para adolescentes, adultos e idosos.
+              {data && data[0].sobre_conteudo}
             </section>
           </div>
         </div>

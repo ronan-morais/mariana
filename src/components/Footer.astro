@@ -16,6 +16,8 @@ if (Astro.request.method === "post") {
     }
   }
 }
+
+const { data } = Astro.props;
 ---
 
 <div
@@ -38,23 +40,20 @@ if (Astro.request.method === "post") {
             <section class="pb-8">
               <div>
                 <span class="text-marromTronco font-bold">WhatsApp:</span>
-                <b
-                  ><a href="https://wa.me/5538999372842" target="_blank"
-                    >+55 (38) 99937-2842</a
-                  ></b
-                >
+                <b> {data && data[0].contato_wpp} </b>
               </div>
               <div>
                 <span class="text-marromTronco font-bold">Instagram:</span>
                 <a
-                  href="https://www.instagram.com/marianacastropsicologa"
-                  target="_blank">@marianacastropsicologa</a
+                  href=`https://www.instagram.com/${data && data[0].contato_instagram}`
+                  target="_blank">{data && "@" + data[0].contato_instagram}</a
                 >
               </div>
               <div>
                 <span class="text-marromTronco font-bold">E-mail:</span>
-                <a href="mailto:psi.marianasc@gmail.com" target="_blank"
-                  >psi.marianasc@gmail.com</a
+                <a
+                  href={data && "mailto:" + data[0].contato_email}
+                  target="_blank">{data && data[0].contato_email}</a
                 >
               </div>
             </section>
