@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import { supabase } from "../lib/supabase";
 
+const { data, error } = await supabase.from("faq").select('*');
+console.log("data:", data, error)
+
 const accessToken = Astro.cookies.get("sb-access-token");
 const refreshToken = Astro.cookies.get("sb-refresh-token");
 
@@ -10,6 +13,7 @@ if (!accessToken || !refreshToken) {
 }
 
 let session;
+
 try {
   session = await supabase.auth.setSession({
     refresh_token: refreshToken.value,
@@ -35,10 +39,11 @@ try {
 }
 
 const email = session.data.user?.email;
+
+
 ---
 <Layout title="dashboard">
   <h1>Welcome {email}</h1>
-  <p>We are happy to see you here</p>
   <form action="/api/auth/signout">
     <button type="submit">Sign out</button>
   </form>
