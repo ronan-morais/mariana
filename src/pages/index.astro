@@ -8,7 +8,7 @@ import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
 const { data: cms, error: error_cms } = await supabase.from("cms").select("*");
-const { data: faq, error: error_faq } = await supabase.from("faq").select("*");
+const { data: faq, error: error_faq } = await supabase.from("faq").select("*").order('id', { ascending: true });
 //export const prerender = true;
 ---
 
