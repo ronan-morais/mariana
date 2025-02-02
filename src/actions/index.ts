@@ -7,18 +7,24 @@ const resend = new Resend(import.meta.env.RESEND_API);
 export const server = {
   send: defineAction({
     accept: 'form',
-    /* input: z.object({
+    input: z.object({
       name: z.string(),
       email: z.string().email(),
       phone: z.string(),
       message: z.string(),
-    }), */
-    handler: async () => {
+    }),
+    handler: async (input) => {
+
+      const { name, email, phone, message } = input;
       const { data, error } = await resend.emails.send({
-        from: 'Acme <onboarding@resend.dev>',
-        to: ['ronan86@gmail.com'],
-        subject: 'Hello world',
-        html: '<strong>It works!</strong>',
+        from: "Mariana Silveira de Castro <onboarding@resend.dev>",
+        to: ['ronan86@gmail.com','psi.marianasc@gmail.com'],
+        replyTo: `${name} <${email}>`,
+        subject: 'Contato pelo site',
+        html: `<div><b>Nome:</b> ${name}</div>
+                <div><b>Telefone:</b> ${phone}</div>
+                <div><b>E-mail:</b> ${email}</div>
+                <div><b>Mensagem:</b> ${message}</div>`
       });
 
       if (error) {

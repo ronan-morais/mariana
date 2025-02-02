@@ -49,6 +49,7 @@
     </button>
   </div>
   <div id="confirm" class="pt-4 font-bold text-marromTitulo hidden">Mensagem enviada com Sucesso!</div>
+  <div id="erro" class="pt-4 font-bold text-marromTitulo hidden">Não foi possível enviar sua mensagem. Por gentileza, tente novamente.</div>
 </form>
 
 <script>
@@ -56,12 +57,16 @@
 
   const form = document.getElementById("resend-form") as HTMLFormElement;
   const confirm = document.getElementById("confirm") as HTMLElement;
+  const erro = document.getElementById("erro") as HTMLElement;
 
   
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const formData = new FormData(form);  
     const res = await actions.send(formData);
-    res && confirm.classList.remove("hidden");
+    console.log(res)
+    res.data && confirm.classList.remove("hidden");
+    res.data && form.reset();
+    res.error && erro.classList.remove("hidden");
   });
 </script>
