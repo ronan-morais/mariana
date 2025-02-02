@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import Form from "../components/Form";
+import Form from "./Form.astro";
 import photoFooter from "@assets/photo02.jpg";
 
-if (Astro.request.method === "post") {
+/* if (Astro.request.method === "post") {
   try {
     const data = await Astro.request.formData();
     const name = data.get("name");
@@ -15,7 +15,7 @@ if (Astro.request.method === "post") {
       console.error(error.message);
     }
   }
-}
+} */
 
 const { data } = Astro.props;
 ---
@@ -57,7 +57,7 @@ const { data } = Astro.props;
                 >
               </div>
             </section>
-            <Form client:load />
+            <Form />
           </div>
         </div>
       </div>

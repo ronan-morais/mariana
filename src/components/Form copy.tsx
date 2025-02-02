@@ -17,7 +17,7 @@ export default function Form() {
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement)
-    const response = await fetch("/api/send-email", {
+    const response = await fetch("/actions/send-email", {
       method: "POST",
       body: formData,
     });
