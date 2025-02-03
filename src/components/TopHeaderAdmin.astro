@@ -1,0 +1,40 @@
+<div class="flex h-20 py-1 justify-center bg-white bg-opacity-80">
+  <div class="flex justify-center w-full items-center gap-14">
+    <div class="hidden sm:flex gap-10">
+      <div class="Menu">
+        <div class="ItemMenu"><a href="/admin">Sobre</a></div>
+        <div class="ItemMenu"><a href="/admin/servicos">Servicos</a></div>
+        <div class="ItemMenu"><a href="/admin/faq">Perguntas e Respostas</a></div>
+        <div class="ItemMenu"><a href="/admin/contato">Contato</a></div>
+        <form action="/api/auth/signout">
+          <button type="submit" class="bg-marromTronco text-white rounded-lg p-2">Sair</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .Menu {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ItemMenu {
+    color: #5e5a57;
+    font-family: Jost;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .Nome {
+    color: #a98f6b;
+    font-family: Jost;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+</style>

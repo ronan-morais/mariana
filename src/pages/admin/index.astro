@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Admin.astro";
+import { supabase } from "../../lib/supabase";
+
+const { data: cms, error: error_cms } = await supabase.from("cms").select("*");
+
+const accessToken = Astro.cookies.get("sb-access-token");
+const refreshToken = Astro.cookies.get("sb-refresh-token");
+
+if (!accessToken || !refreshToken) {
+  return Astro.redirect("/signin");
+}
+
+let session;
+
+try {
+  session = await supabase.auth.setSession({
+    refresh_token: refreshToken.value,
+    access_token: accessToken.value,
+  });
+  if (session.error) {
+    Astro.cookies.delete("sb-access-token", {
+      path: "/",
+    });
+    Astro.cookies.delete("sb-refresh-token", {
+      path: "/",
+    });
+    return Astro.redirect("/signin");
+  }
+} catch (error) {
+  Astro.cookies.delete("sb-access-token", {
+    path: "/",
+  });
+  Astro.cookies.delete("sb-refresh-token", {
+    path: "/",
+  });
+  return Astro.redirect("/signin");
+}
+---
+
+<Layout title="dashboard">
+  <div class="container mx-auto my-20">
+    <form id="form-sobre" method="post">
+      <div>
+        <h2 class="mb-5">Sobre</h2>
+        <div class="mb-5">
+          <h3 class="text-bold text-marromTronco">Titulo:</h3>
+          <input
+            name="sobre_titulo"
+            class="w-full p-2 rounded-md"
+            value={!error_cms && cms[0].sobre_titulo}
+          />
+        </div>
+        <div class="mb-10">
+          <h3 class="text-bold text-marromTronco">Conteudo:</h3>
+          <textarea
+          name="sobre_conteudo"
+          rows="7"
+          class="w-full p-2 rounded-md">{!error_cms && cms[0].sobre_conteudo}</textarea>
+        </div>
+      </div>
+      <button
+        id="submit"
+        type="submit"
+        class="rounded-md bg-marromTronco font-bold text-white p-2"
+        >Salvar</button
+      >
+    </form>
+  </div>
+</Layout>
+
+<script>
+  import { actions } from "astro:actions"
+  
+  const form = document.getElementById("form-sobre") as HTMLFormElement;
+  //const submit = document.getElementById("submit") as HTMLElement;
+
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const formData = new FormData(form);  
+    const res = await actions.updateSobre(formData);
+    console.log(res)
+  })
+
+  </script>
