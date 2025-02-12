@@ -12,12 +12,34 @@ if (accessToken && refreshToken) {
 ---
 
 <Layout title="Sign in">
-  <h1>Sign in</h1>
-  <form action="/api/auth/signin" method="post">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" />
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" />
-    <button type="submit">Login</button>
-  </form>
+  <div class="container mx-auto py-10 mt-20 rounded-lg p-10 bg-white">
+    <h1 class="font-bold text-xl mb-5 text-marromTronco">
+      Bem vinda, Mariana!
+    </h1>
+    <form
+      action="/api/auth/signin"
+      method="post"
+      class="flex items-center flex-col gap-3 lg:flex-row w-full"
+    >
+      <div class="w-full">
+        <label for="email" class="text-marromTitulo mb-3">Email:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="p-3 rounded-lg w-full"
+        />
+      </div>
+      <div class="w-full">
+        <label for="password" class="text-marromTitulo mb-3">Senha:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="p-3 rounded-lg w-full"
+        />
+      </div>
+      <button type="submit" class="bg-marromTronco text-white font-bold p-4 rounded-xl">Entrar</button>
+    </form>
+  </div>
 </Layout>
